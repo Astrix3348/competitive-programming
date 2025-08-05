@@ -1,20 +1,25 @@
 #include<iostream>
 #include<string.h>
+#include<cstring>
+#include<algorithm>
 using namespace std;
 
 int main(){
-	int n, t=0;
 	string s;
-	cin >> n;
-	while(n--){
-		cin >> s;
-		if(s=="X++" || s=="++X"){
-			t++;
-		}
-		else{
-			t--;
+	cin >> s;
+	int n=0;
+	sort(s.begin(), s.end());
+	for(int i=0; i<s.size(); i++){
+		if(s[i]!=s[i+1]){
+			n++;
 		}
 	}
-	cout << t << endl;
+
+	if(n%2==0){
+		cout << "CHAT WITH HER!" << endl;
+	}
+	else{
+		cout << "IGNORE HIM!" << endl;
+	}
 	return 0;
 }
